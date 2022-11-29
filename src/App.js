@@ -62,8 +62,10 @@ function App() {
             <Home />
             <About />
             <Shop />
-            <Banner />
-            <NewArrival />
+            {/* <Banner />  */}
+            <br/>
+            <br/>
+             <NewArrival /> 
             <Footer />
           </main>
           </AnimatePresence>
