@@ -2,7 +2,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import React, { useLayoutEffect } from "react";
 import styled from "styled-components";
-import { useRef, useState} from "react";
+import { useRef, useState } from "react";
 
 import { AnimateSharedLayout, motion } from "framer-motion";
 
@@ -10,15 +10,36 @@ import img1 from "../assets/Images/Expense.jpg";
 import img2 from "../assets/Images/Meal.jpg";
 import img3 from "../assets/Images/spotify.jpg";
 import img4 from "../assets/Images/movie.jpg";
- import img5 from "../assets/Images/netfilx.jpg";
+import img5 from "../assets/Images/netfilx.jpg";
 // import img6 from "../assets/Images/6.webp";
 // import img7 from "../assets/Images/7.webp";
 // import img8 from "../assets/Images/8.webp";
 // import img9 from "../assets/Images/9.webp";
 // import img10 from "../assets/Images/10.webp";
 import Modal from "../components/Modal";
-const items =[img1,img2,img3,img4,img5];
-
+import { Typography } from "@material-ui/core";
+const items = [
+  {
+    img: img1,
+    typo: "sabhal k",
+  },
+  {
+    img: img2,
+    typo: "Metaverse Project",
+  },
+  {
+    img: img3,
+    typo: "Japan Bank",
+  },
+  {
+    img: img4,
+    typo: "Wallah habibi",
+  },
+  {
+    img: img5,
+    typo: "boom boom",
+  },
+];
 
 const Section = styled.section`
   min-height: 100vh;
@@ -76,7 +97,7 @@ const Left = styled.div`
   @media (max-width: 64em) {
     p {
       font-size: ${(props) => props.theme.fontmd};
-      marginTop:'22%',
+      margintop: "22%";
     }
   }
 
@@ -84,7 +105,7 @@ const Left = styled.div`
     width: 40%;
     p {
       font-size: ${(props) => props.theme.fontsm};
-      marginTop:'0%',
+      margintop: "0%";
     }
   }
 
@@ -125,6 +146,9 @@ const Item = styled(motion.div)`
     height: auto;
     cursor: pointer;
   }
+  .img:hover {
+    tranform: scale(1.2);
+  }
   h1 {
     display: inline-block;
     width: fit-content;
@@ -143,13 +167,11 @@ const Item = styled(motion.div)`
 //   return (
 //     <>
 //       <motion.div layoutId={data.index} onClick={() => setIsOpen(data.index)}>
-//         {isOpen && }  
+//         {isOpen && }
 //       </motion.div>
- 
-    
+
 //     </>
-    
-    
+
 //     // <Item
 //     //   initial={{ filter: "grayscale(100%)" }}
 //     //   whileInView={{ filter: "grayscale(0%)" }}
@@ -172,7 +194,7 @@ const Shop = () => {
     let element = ref.current;
     let scrollingElement = horizontalRef.current;
 
-    let pinWrapWidth = scrollingElement.offsetWidth;
+    let pinWrapWidth = scrollingElement.clientWidth;
 
     let t1 = gsap.timeline();
 
@@ -216,50 +238,48 @@ const Shop = () => {
       ScrollTrigger.kill();
     };
   }, []);
-  const [selectedId, setSelectedId] = useState(null)
+  const [selectedId, setSelectedId] = useState(null);
 
   return (
     <Section ref={ref} id="shop">
-    <Left>
-    <Title>
-        Projects
-      </Title>
-    </Left>
-      
-    
+      <Left>
+        <Title>Projects</Title>
+      </Left>
+
       <Right ref={horizontalRef}>
-     
-      {items.map((item,id) => (
-        <>
-        <motion.div layoutId={id+1} onClick={() => {setSelectedId(id+1); console.log("id0-----",id)}}>
-        <Item
-        
-           initial={{ filter: "grayscale(100%)" }}
-           whileInView={{ filter: "grayscale(0%)" }}
-           transition={{ duration: 0.5 }}
-           viewport={{ once: false, amount: "all" }}
-         >
-           <img src={item} alt={item} />
-         </Item>
-        </motion.div>    
-        </>
-      ))}
-      <AnimateSharedLayout>
-        {selectedId && (
-    <motion.div layoutId={selectedId}>
-    <Modal
-      setOpenDeleteModal={() => setSelectedId(null)}
-      openDeleteModal={selectedId ? true : false}
-      content ={items[selectedId-1]}
-      />
-        
-      
-    </motion.div>
-  )}
-      </AnimateSharedLayout>
-  
-      
-       
+        {items.map((item, id) => (
+          <>
+            <motion.div
+              layoutId={item.img}
+              onClick={() => {
+                setSelectedId(item.img);
+                console.log("id0-----", id);
+              }}
+            >
+              <Item
+                initial={{ filter: "grayscale(100%)" }}
+                whileInView={{ filter: "grayscale(0%)" }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: false, amount: "all" }}
+              >
+                <img src={item.img} alt={item} className="img" />
+                <Typography>{item.typo}</Typography>
+              </Item>
+            </motion.div>
+          </>
+        ))}
+        <AnimateSharedLayout>
+          {selectedId && (
+            <motion.div layoutId={items.img}>
+              <Modal
+                setOpenDeleteModal={() => setSelectedId(null)}
+                openDeleteModal={selectedId ? true : false}
+                content={selectedId}
+              />
+            </motion.div>
+          )}
+        </AnimateSharedLayout>
+
         {/* <Product img={img1} title="Man Basics" />
         <Product img={img2} title="Tops" />
         <Product img={img3} title="Sweatshirts" />

@@ -1,9 +1,10 @@
-
 import {
   Dialog,
   DialogContent,
   Box,
   makeStyles,
+  Grid,
+  Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
 
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const Item = styled(motion.div)`
-  width: 20rem;
+  width: 100%
   margin-right: 6rem;
 
   display: flex;
@@ -50,33 +51,56 @@ const Item = styled(motion.div)`
   }
 `;
 
-export default function Modal({ openDeleteModal, setOpenDeleteModal, content }) {
+export default function Modal({
+  openDeleteModal,
+  setOpenDeleteModal,
+  content,
+}) {
   const classes = useStyles();
   console.log("content--", content);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
   console.log("status---", status);
   return (
-    <Dialog
-      className={classes.dailogOpen}
-      open={openDeleteModal}
-      maxWidth="sm"
-      fullWidth
-      onClose={() => setOpenDeleteModal(false)}
-    >
-      <DialogContent>
-      <Item
-        
-        initial={{ filter: "grayscale(100%)" }}
-        whileInView={{ filter: "grayscale(0%)" }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: false, amount: "all" }}
+    <>
+      <Dialog
+        className={classes.dailogOpen}
+        open={openDeleteModal}
+        maxWidth="md"
+        fullWidth
+        onClose={() => setOpenDeleteModal(false)}
       >
-        <img src={content} alt={content}/>
-      </Item>
-      </DialogContent>
-      <Box align="center" style={{ marginLeft: "10px", padding: "5px 20px" }}>
-      </Box>
-    </Dialog>
+        <DialogContent>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <Item
+                initial={{ filter: "grayscale(100%)" }}
+                whileInView={{ filter: "grayscale(0%)" }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: false, amount: "all" }}
+              >
+                <img src={content} alt={content} />
+              </Item>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Typography>Previous Project</Typography>
+              <Typography>Project Name:ABC</Typography>
+              <Typography>
+                Project details:ghasdhj ahsdghj adhgas dgsadhj asdghj ashgdj
+                ajshdghjasgdhjgsahj hsajkdhkjsa d asjkdh jkashd jkhsa djkhas
+                jkdhkas dajshdk ahsdj jksadh jkasdjkahs dhs akjdhsad
+                jkahsjkdhjksa dhjkas hdjkhasjkdjkashddmnsf jgsdfhjksa fjk asdjfh
+                jksdhfjk hdsjf dsdhf akjhdfjk fjsahjkfhajksf jk
+              </Typography>
+            </Grid>
+          </Grid>
+        </DialogContent>
+
+        <Box
+          align="center"
+          style={{ marginLeft: "10px", padding: "5px 20px" }}
+        ></Box>
+      </Dialog>
+    </>
   );
 }

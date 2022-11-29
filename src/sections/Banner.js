@@ -68,7 +68,8 @@ const Banner = () => {
             data-scroll-speed="8"
             data-scroll-target="#up"
           >
-            Fashion is an armour{" "}
+            My code DOESN’T work,{" "}
+             
           </span>
         </BannerComponent>
         <BannerComponent>
@@ -78,7 +79,7 @@ const Banner = () => {
             data-scroll-speed="-6"
             data-scroll-target="#up"
           >
-            to survive everyday life
+             I have no idea why.
           </span>
         </BannerComponent>
         <BannerComponent>
@@ -88,7 +89,7 @@ const Banner = () => {
             data-scroll-speed="6"
             data-scroll-target="#up"
           >
-            One is never over-dressed or
+            My code WORKS,
           </span>
         </BannerComponent>
         <BannerComponent>
@@ -98,7 +99,7 @@ const Banner = () => {
             data-scroll-speed="-4"
             data-scroll-target="#up"
           >
-            under-dressed
+            I have no idea why.
           </span>
         </BannerComponent>
         <BannerComponent>
@@ -108,7 +109,7 @@ const Banner = () => {
             data-scroll-speed="6"
             data-scroll-target="#up"
           >
-            with a Little Black Dress
+           -Jashne Ali
           </span>
         </BannerComponent>
       </Container>
