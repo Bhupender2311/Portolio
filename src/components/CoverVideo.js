@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MainVideo from "../assets/vedioBg.mp4";
+import MainVideo from "../assets/pexels-rostislav-uzunov-5680034.mp4";
 import { motion } from "framer-motion";
 
 const VideoContainer = styled.section`

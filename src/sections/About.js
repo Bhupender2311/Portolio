@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import img1 from "../assets/Images/1.webp";
-import img2 from "../assets/Images/2.webp";
-import img3 from "../assets/Images/3.webp";
+import img2 from "../assets/Images/8A3B02B9-00BB-4D2A-B22F-82EDEF21096F.jpg";
+import img1 from "../assets/Images/86E422FE-5AF7-44FB-88A7-7E3BD53C1490.jpg";
+import img3 from "../assets/Images/40658B19-C3BA-4ED9-86B0-2B5FB8318819.jpg";
 
 const Section = styled.section`
   position: relative;
