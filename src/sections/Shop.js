@@ -6,18 +6,18 @@ import { useRef, useState} from "react";
 
 import { AnimateSharedLayout, motion } from "framer-motion";
 
-import img1 from "../assets/Images/1.webp";
-import img2 from "../assets/Images/2.webp";
-import img3 from "../assets/Images/3.webp";
-import img4 from "../assets/Images/4.webp";
-import img5 from "../assets/Images/5.webp";
-import img6 from "../assets/Images/6.webp";
-import img7 from "../assets/Images/7.webp";
-import img8 from "../assets/Images/8.webp";
-import img9 from "../assets/Images/9.webp";
-import img10 from "../assets/Images/10.webp";
+import img1 from "../assets/Images/Expense.jpg";
+import img2 from "../assets/Images/Meal.jpg";
+import img3 from "../assets/Images/spotify.jpg";
+import img4 from "../assets/Images/movie.jpg";
+ import img5 from "../assets/Images/netfilx.jpg";
+// import img6 from "../assets/Images/6.webp";
+// import img7 from "../assets/Images/7.webp";
+// import img8 from "../assets/Images/8.webp";
+// import img9 from "../assets/Images/9.webp";
+// import img10 from "../assets/Images/10.webp";
 import Modal from "../components/Modal";
-const items =[img1,img2,img3,img4,img5,img6,img7,img8,img9,img10];
+const items =[img1,img2,img3,img4,img5];
 
 
 const Section = styled.section`
@@ -220,25 +220,13 @@ const Shop = () => {
 
   return (
     <Section ref={ref} id="shop">
-      <Title>
+    <Left>
+    <Title>
         Projects
       </Title>
+    </Left>
       
-      <Left>
-        <p>
-          The brand new collection is currently being developed in USA. We
-          create our products using best quality material, including the use of
-          some of the pure fabrics to make our products. All products are made
-          using the best materials, from the finest cotton to the finest
-          fabrics.
-          <br />
-          <br />
-          We have lots of different clothing options like shoes, jackets and
-          dresses. Not only clothes but we also provide unique Jewellery as
-          well. It is great for us to carry our new clothes all around the
-          country and look different.
-        </p>
-      </Left>
+    
       <Right ref={horizontalRef}>
      
       {items.map((item,id) => (
