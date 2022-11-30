@@ -14,6 +14,7 @@ import Banner from "./sections/Banner";
 import NewArrival from "./sections/NewArrival";
 import Footer from './sections/Footer';
 import Loader from "./components/Loader";
+import Project from "./sections/Project";
 
 
 function App() {
@@ -61,7 +62,8 @@ function App() {
           <main className='App' data-scroll-container ref={containerRef}>
             <Home />
             <About />
-            <Shop />
+            <Project/>
+            {/* <Shop /> */}
             {/* <Banner />  */}
             <br/>
             <br/>

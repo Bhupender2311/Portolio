@@ -84,6 +84,7 @@ const Text = styled.div`
     display: none;
   }
 `;
+
 const Container = styled.div`
   position: absolute;
   top: 0%;
@@ -111,14 +112,19 @@ const Container = styled.div`
 
 const Item = styled.div`
   display: flex;
+  text-align:end;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 5rem 0;
+  postion:relative;
   img {
     width: 100%;
     height: auto;
     z-index: 5;
+  },
+  h2{
+    font-family: 'DM Sans', sans-serif;
   }
 `;
 
@@ -126,7 +132,7 @@ const Product = ({ img, title = "" }) => {
   return (
     <Item>
       <img src={img} alt={title} />
-      <h2>{title}</h2>
+      <h2 style={{position:'absolute',zIndex:999}}>{title}</h2>
     </Item>
   );
 };
@@ -148,7 +154,7 @@ const NewArrival = () => {
         scrollTrigger: {
           trigger: element,
           start: "top top",
-          end: "bottom+=160%",
+          end: "bottom+=180%",
           scroller: ".App", // locomotive element
           scrub: true,
           pin: true,
